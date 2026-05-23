@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import axios from "axios";
 
+const API = process.env.REACT_APP_API_URL;
 
 export default function Chat({ token }) {
   const [socket, setSocket] = useState(null);
@@ -15,7 +16,7 @@ export default function Chat({ token }) {
   //  simple 1–1 receiver logic (for demo)
   const receiverId = username === "user1" ? "user2" : "user1";
 
-  const API = process.env.REACT_APP_API_URL;
+  // const API = process.env.REACT_APP_API_URL;
 
   // ---------------- SOCKET SETUP ----------------
   useEffect(() => {
