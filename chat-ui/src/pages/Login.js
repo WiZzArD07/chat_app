@@ -1,12 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API = process.env.REACT_APP_API_URL;
+
 export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    const res = await axios.post("/api/auth/login", {
+    const res = await axios.post(`${API}/api/auth/login`, {
       username,
       password
     });
